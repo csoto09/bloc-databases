@@ -49,23 +49,26 @@ Use the commands above to complete the following tasks, and submit the SQL state
      * `DELETE FROM inventory WHERE id = 1;`
 1. Write a command to make a new table to hold spacecrafts. Information should include id, name, year launched, country of origin, a brief description of the mission, orbiting body, if it is currently operating, and its approximate miles from Earth. In addition to the table creation, provide commands that perform the following operations:
     ``` sql
-      CREATE TABLE active_spacecraft (id smallserial,name text, Launch_Year integer, Country, Mission_Summary text, Orbiting_Body text, Operational boolean, Dist_Earth integer);
+      CREATE TABLE active_spacecraft (id varchar(24),name text, Launch_Year integer, Country text, Mission_Summary text, Orbiting_Body text, Operational boolean, Dist_Earth integer);
     ```
    * Add three non-Earth-orbiting satellites to the table.
-    * ``` sql 
-      INSERT INFO (name, launch_year, country, mission_summary, orbiting_body, operational, dist_earth)
-      VALUES('Mars Climate Orbiter',1998, 'USA', 'The Mars Climate Orbiter was a 338-kilogram (745 lb) robotic space probe launched by NASA on December 11, 1998 to study the Martian climate, Martian atmosphere, and surface changes and to act as the communications relay in the Mars Surveyor 98 program for Mars Polar Lander. However, on September 23, 1999, communication with the spacecraft was lost as the spacecraft went into orbital insertion, due to ground-based computer software which produced output in non-SI units of pound-force seconds (lbf·s) instead of the SI units of newton-seconds (N·s) specified in the contract between NASA and Lockheed. The spacecraft encountered Mars on a trajectory that brought it too close to the planet, and it was either destroyed in the atmosphere or re-entered heliocentric space after leaving the atmosphere.','Mars',TRUE,34000000),
-      ('Phoenix',2007,'USA','Phoenix was a robotic spacecraft on a space exploration mission on Mars under the Mars Scout Program. The Phoenix lander landed on Mars on May 25, 2008. Mission scientists used instruments aboard the lander to assess the local habitability and to research the history of water there. The total mission cost was about US $386 million, which includes cost of the launch.','Mars',TRUE,34000000),
-      ('ExoMars Trace Gas Orbiter', 2016,'ESA/Russia','The ExoMars Trace Gas Orbiter (TGO or ExoMars Orbiter) is a collaborative project between the European Space Agency (ESA) and Roscosmos that sent an atmospheric research orbiter and the Schiaparelli demonstration lander to Mars in 2016 as part of the European-led ExoMars programme.','Mars',TRUE,34000000);
-      ```
+    ``` sql 
+      INSERT INTO active_spacecraft (id,name, launch_year, country, mission_summary, orbiting_body, operational, dist_earth)
+      VALUES('1998-073A','Mars Climate Orbiter',1998, 'USA', 'The Mars Climate Orbiter was a 338-kilogram (745 lb) robotic space probe launched by NASA on December 11, 1998 to study the Martian climate, Martian atmosphere, and surface changes and to act as the communications relay in the Mars Surveyor 98 program for Mars Polar Lander. However, on September 23, 1999, communication with the spacecraft was lost as the spacecraft went into orbital insertion, due to ground-based computer software which produced output in non-SI units of pound-force seconds (lbf·s) instead of the SI units of newton-seconds (N·s) specified in the contract between NASA and Lockheed. The spacecraft encountered Mars on a trajectory that brought it too close to the planet, and it was either destroyed in the atmosphere or re-entered heliocentric space after leaving the atmosphere.','Mars',TRUE,34000000),
+      ('2007-034A','Phoenix',2007,'USA','Phoenix was a robotic spacecraft on a space exploration mission on Mars under the Mars Scout Program. The Phoenix lander landed on Mars on May 25, 2008. Mission scientists used instruments aboard the lander to assess the local habitability and to research the history of water there. The total mission cost was about US $386 million, which includes cost of the launch.','Mars',TRUE,34000000),
+      ('2016-017A','ExoMars Trace Gas Orbiter', 2016,'ESA/Russia','The ExoMars Trace Gas Orbiter (TGO or ExoMars Orbiter) is a collaborative project between the European Space Agency (ESA) and Roscosmos that sent an atmospheric research orbiter and the Schiaparelli demonstration lander to Mars in 2016 as part of the European-led ExoMars programme.','Mars',TRUE,34000000);
+    ```
   
    * Remove one of the satellites from the table since it has just crashed into the planet.
-      ```sql
-        DELETE 
-      ```
+    ```sql
+      DELETE FROM active_spacecraft WHERE id='1998-073A';
+    ```
    * Edit another satellite because it is no longer operating and change the value to reflect that.
+    ``` sql
+      UPDATE active_spacecraft SET Operational=FALSE WHERE id='2007-034A';
+    ```
 
-2. Write a command to create a new table to hold the emails in your inbox. This table should include an id, the subject line, the sender, any additional recipients, the body of the email, the timestamp, whether or not you have read the email, and the id of the email chain it's in. Also provide commands that perform the following operations:
+1. Write a command to create a new table to hold the emails in your inbox. This table should include an id, the subject line, the sender, any additional recipients, the body of the email, the timestamp, whether or not you have read the email, and the id of the email chain it's in. Also provide commands that perform the following operations:
 
    * Add three new emails to the inbox.
    * You deleted one of the emails, so write a command to remove the row from the inbox table.
