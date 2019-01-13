@@ -3,9 +3,18 @@
 Use the commands above to complete the following tasks, and submit the SQL statements. Real-world examples must be distinct from those used in the text.
 
 1. List the commands for adding, updating, and deleting data.
-   * Adding data: `INSERT INTO tableName VALUES ('String', 1234, TRUE);`
-   * Updating data: `UPDATE tableName SET field='newValue' WHERE id=12345;`
-   * Delete data: `DELETE FROM tableName WHERE id=12345;`
+   * Adding data:
+    ``` sql
+      INSERT INTO tableName VALUES ('String', 1234, TRUE);
+    ```
+   * Updating data:
+    ``` sql
+      UPDATE tableName SET field='newValue' WHERE id=12345;
+    ```
+   * Delete data:
+    ``` sql
+      DELETE FROM tableName WHERE id=12345;
+    ```
 
 1. Explain the structure for each type of command.
 
@@ -19,15 +28,32 @@ Use the commands above to complete the following tasks, and submit the SQL state
       * Number of guests. - ***INTEGER***
       * Number of meals. - ***INTEGER***
     * Write a command that creates the table to track the wedding dinner.
-      * `CREATE TABLE wedding_guests (id smallserial, FirstName varchar(32), LastName varchar(32), RSVP boolean, NumberOfGuests integer, NumberOfMeals integer);`
+      ``` sql
+        CREATE TABLE wedding_guests (
+          id smallserial,
+          FirstName varchar(32),
+          LastName varchar(32),
+          RSVP boolean,
+          NumberOfGuests integer,
+          NumberOfMeals integer
+          );
+      ```
     * Write a command that adds a column to track whether the guest sent a thank you card.
-      * `ALTER TABLE wedding_guests ADD COLUMN ThankYou boolean SET DEFAULT FALSE;`
+      ``` sql
+        ALTER TABLE wedding_guests ADD COLUMN ThankYou boolean SET DEFAULT FALSE;
+      ```
     * You have decided to move the data about the meals to another table, so write a command to remove the column storing the number meals from the wedding table.
-      * `ALTER TABLE wedding_guests DROP COLUMN NumberOfMeals;`
+      ```sql
+        ALTER TABLE wedding_guests DROP COLUMN NumberOfMeals;
+      ```
     * The guests will need a place to sit at the reception, so write a command that adds a column for table number.
-      * `ALTER TABLE wedding_guests ADD COLUMN TableNumber integer;`
+      ```sql
+        ALTER TABLE wedding_guests ADD COLUMN TableNumber integer;
+      ```
     * The wedding is over and we do not need to keep this information, so write a command that deletes the table numbers from the database.
-      * `ALTER TABLE wedding_guests DROP COLUMN TableNumber;`
+      ``` sql
+        ALTER TABLE wedding_guests DROP COLUMN TableNumber;
+      ```
 
 1. Write a command to create a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
 
@@ -44,15 +70,19 @@ Use the commands above to complete the following tasks, and submit the SQL state
       ```
 
    * Someone has just checked out one of the books. Change the number of available copies to 1 fewer.
-     * `UPDATE inventory SET available_copies=0 WHERE id = 2;`
+    ``` sql
+     UPDATE inventory SET available_copies=0 WHERE id = 2;
+    ```
    * Now one of the books has been added to the banned books list. Remove it from the table.
-     * `DELETE FROM inventory WHERE id = 1;`
+    ``` sql
+      DELETE FROM inventory WHERE id = 1;
+    ```
 1. Write a command to make a new table to hold spacecrafts. Information should include id, name, year launched, country of origin, a brief description of the mission, orbiting body, if it is currently operating, and its approximate miles from Earth. In addition to the table creation, provide commands that perform the following operations:
     ``` sql
       CREATE TABLE active_spacecraft (id varchar(24),name text, Launch_Year integer, Country text, Mission_Summary text, Orbiting_Body text, Operational boolean, Dist_Earth integer);
     ```
    * Add three non-Earth-orbiting satellites to the table.
-    ``` sql 
+    ``` sql
       INSERT INTO active_spacecraft (id,name, launch_year, country, mission_summary, orbiting_body, operational, dist_earth)
       VALUES('1998-073A','Mars Climate Orbiter',1998, 'USA', 'The Mars Climate Orbiter was a 338-kilogram (745 lb) robotic space probe launched by NASA on December 11, 1998 to study the Martian climate, Martian atmosphere, and surface changes and to act as the communications relay in the Mars Surveyor 98 program for Mars Polar Lander. However, on September 23, 1999, communication with the spacecraft was lost as the spacecraft went into orbital insertion, due to ground-based computer software which produced output in non-SI units of pound-force seconds (lbf·s) instead of the SI units of newton-seconds (N·s) specified in the contract between NASA and Lockheed. The spacecraft encountered Mars on a trajectory that brought it too close to the planet, and it was either destroyed in the atmosphere or re-entered heliocentric space after leaving the atmosphere.','Mars',TRUE,34000000),
       ('2007-034A','Phoenix',2007,'USA','Phoenix was a robotic spacecraft on a space exploration mission on Mars under the Mars Scout Program. The Phoenix lander landed on Mars on May 25, 2008. Mission scientists used instruments aboard the lander to assess the local habitability and to research the history of water there. The total mission cost was about US $386 million, which includes cost of the launch.','Mars',TRUE,34000000),
@@ -69,7 +99,20 @@ Use the commands above to complete the following tasks, and submit the SQL state
     ```
 
 1. Write a command to create a new table to hold the emails in your inbox. This table should include an id, the subject line, the sender, any additional recipients, the body of the email, the timestamp, whether or not you have read the email, and the id of the email chain it's in. Also provide commands that perform the following operations:
-
+    ``` sql
+      CREATE TABLE inbox (
+        id smallserial,
+        subject text,
+        sender text,
+        cc text,
+        contents text,
+        sent_at timestamp,
+        unread boolean,
+        threadid integer);
+    ```
    * Add three new emails to the inbox.
    * You deleted one of the emails, so write a command to remove the row from the inbox table.
    * You started reading an email but just heard a crash in another room. Mark the email as unread before investigating the crash, so you can come back and read it later.
+    ```sql
+      UPDATE inbox SET unread=TRUE WHERE id = 3;
+    ```
