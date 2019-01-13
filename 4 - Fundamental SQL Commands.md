@@ -56,11 +56,18 @@ Use the commands above to complete the following tasks, and submit the SQL state
       ```
 
 1. Write a command to create a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
-
     ``` sql
-      CREATE TABLE inventory (id smallserial, ISBN varchar(20), title text, author text, genre text, publishing_date date, total_copies integer, available_copies integer);
+      CREATE TABLE inventory (
+        id smallserial, 
+        ISBN varchar(20), 
+        title text, 
+        author text, 
+        genre text, 
+        publishing_date date, 
+        total_copies integer, 
+        available_copies integer
+      );
     ```
-  
    * Find three books and add their information to the table.
       ``` sql
       INSERT INTO inventory (isbn, title, author, genre, publishing_date, total_copies, available_copies)
@@ -68,10 +75,9 @@ Use the commands above to complete the following tasks, and submit the SQL state
       ('978-0-544-27299-6', 'What If?: Serious Scientific Answers to Absurd Hypothetical Questions', 'Randall Munroe', 'Self-Help', '2014-09-02', 5,5),
       ('978-0544668256','Thing Explainer: Complicated Stuff in Simple Words','Randall Munroe','Humor','2015-11-24',2,2);
       ```
-
    * Someone has just checked out one of the books. Change the number of available copies to 1 fewer.
     ``` sql
-     UPDATE inventory SET available_copies=0 WHERE id = 2;
+      UPDATE inventory SET available_copies=0 WHERE id = 2;
     ```
    * Now one of the books has been added to the banned books list. Remove it from the table.
     ``` sql
@@ -79,7 +85,16 @@ Use the commands above to complete the following tasks, and submit the SQL state
     ```
 1. Write a command to make a new table to hold spacecrafts. Information should include id, name, year launched, country of origin, a brief description of the mission, orbiting body, if it is currently operating, and its approximate miles from Earth. In addition to the table creation, provide commands that perform the following operations:
     ``` sql
-      CREATE TABLE active_spacecraft (id varchar(24),name text, Launch_Year integer, Country text, Mission_Summary text, Orbiting_Body text, Operational boolean, Dist_Earth integer);
+      CREATE TABLE active_spacecraft (
+        id varchar(24),
+        name text, 
+        Launch_Year integer, 
+        Country text, 
+        Mission_Summary text, 
+        Orbiting_Body text, 
+        Operational boolean, 
+        Dist_Earth integer
+      );
     ```
    * Add three non-Earth-orbiting satellites to the table.
     ``` sql
@@ -88,7 +103,6 @@ Use the commands above to complete the following tasks, and submit the SQL state
       ('2007-034A','Phoenix',2007,'USA','Phoenix was a robotic spacecraft on a space exploration mission on Mars under the Mars Scout Program. The Phoenix lander landed on Mars on May 25, 2008. Mission scientists used instruments aboard the lander to assess the local habitability and to research the history of water there. The total mission cost was about US $386 million, which includes cost of the launch.','Mars',TRUE,34000000),
       ('2016-017A','ExoMars Trace Gas Orbiter', 2016,'ESA/Russia','The ExoMars Trace Gas Orbiter (TGO or ExoMars Orbiter) is a collaborative project between the European Space Agency (ESA) and Roscosmos that sent an atmospheric research orbiter and the Schiaparelli demonstration lander to Mars in 2016 as part of the European-led ExoMars programme.','Mars',TRUE,34000000);
     ```
-  
    * Remove one of the satellites from the table since it has just crashed into the planet.
     ```sql
       DELETE FROM active_spacecraft WHERE id='1998-073A';
@@ -111,7 +125,17 @@ Use the commands above to complete the following tasks, and submit the SQL state
         threadid integer);
     ```
    * Add three new emails to the inbox.
+    ``` sql
+      INSERT INTO inbox (subject, sender, cc, contents, sent_at, unread, threadid)
+      VALUES ('FWD: FWD: RE: FWD: Happy New Year~!', 'aleesia.algorithm@uw.edu','','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rutrum neque magna, id convallis lectus tincidunt bibendum. Donec ac lobortis.','2019-01-08 22:23:46',TRUE, NULL),
+      ('Lorem Ipsum to go!', 'bboolean@nasa.gov','datad@comcast.net, chris.collection@outlook.com','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rutrum neque magna, id convallis lectus tincidunt bibendum. Donec ac lobortis.','2019-01-10 07:08:09',FALSE, 22),
+      ('Stop replying to the reply all!','datad@comcast.net','bboolean@nasa.gov','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rutrum neque magna, id convallis lectus tincidunt bibendum. Donec ac lobortis.','2019-01-10 09:09:23',FALSE,22);
+
+    ```
    * You deleted one of the emails, so write a command to remove the row from the inbox table.
+    ``` SQL
+      DELETE FROM inbox WHERE id = 1;
+    ```
    * You started reading an email but just heard a crash in another room. Mark the email as unread before investigating the crash, so you can come back and read it later.
     ```sql
       UPDATE inbox SET unread=TRUE WHERE id = 3;
