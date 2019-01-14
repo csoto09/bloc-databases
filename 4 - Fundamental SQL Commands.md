@@ -58,13 +58,13 @@ Use the commands above to complete the following tasks, and submit the SQL state
 1. Write a command to create a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
     ``` sql
       CREATE TABLE inventory (
-        id smallserial, 
-        ISBN varchar(20), 
-        title text, 
-        author text, 
-        genre text, 
-        publishing_date date, 
-        total_copies integer, 
+        id smallserial,
+        ISBN varchar(20),
+        title text,
+        author text,
+        genre text,
+        publishing_date date,
+        total_copies integer,
         available_copies integer
       );
     ```
@@ -87,12 +87,12 @@ Use the commands above to complete the following tasks, and submit the SQL state
     ``` sql
       CREATE TABLE active_spacecraft (
         id varchar(24),
-        name text, 
-        Launch_Year integer, 
-        Country text, 
-        Mission_Summary text, 
-        Orbiting_Body text, 
-        Operational boolean, 
+        name text,
+        Launch_Year integer,
+        Country text,
+        Mission_Summary text,
+        Orbiting_Body text,
+        Operational boolean,
         Dist_Earth integer
       );
     ```
