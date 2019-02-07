@@ -17,9 +17,23 @@ Use the commands above to complete the following tasks, and submit the SQL state
     ```
 
 1. Explain the structure for each type of command.
-
+   * add data: 
+     * command: INSERT
+     * location: INTO `tableName` 
+     * content to add: VALUES (*content to insert*)
+   * updating data:
+     * command: UPDATE 'tableName'
+     * content to change: **field_name**='*newValue*'
+     * clause: WHERE id = 12345
+   * deleting data:
+     * command: DELETE
+     * location: FROM tableName
+     * clause: WHERE id = 12345
 1. What are some of the data types that can be used in tables? Give a real-world example of each type.
-
+   * Integers: street addresses
+   * UUID: VIN numbers in cars
+   * floating-point: currency and prices
+   * text: bio in your linkedin profile.
 1. Decide how to create a new table to hold a list of people invited to a wedding dinner. The table needs to have first and last names, whether they sent in their RSVP, the number of guests they are bringing, and the number of meals (1 for adults and 1/2 for children).
 
     * Which data type would you use to store each of the following pieces of information?
