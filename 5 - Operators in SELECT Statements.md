@@ -14,7 +14,7 @@ Answer the following questions and submit the responses.
         WHERE column1='foo' -- WHERE clause is optional
     ```
 1. Create a fun way to remember the order of operations in a `SELECT` statement, such as a mnemonic.
-
+   * `SELECT`, `FROM`, `WHERE` = *Safe For Work*! (Ugh, so lame but it's the only thing I could come up with!!)
 1. Given this `dogs` table, write queries to select the following pieces of data:
    * Display the name, gender, and age of all dogs that are part Labrador.
 
@@ -60,7 +60,7 @@ Answer the following questions and submit the responses.
         | 10006 | 7   | 150    | great dane |
         | 10007 | 5   | 180    | rottweiler |
 
-2. Given this `cats` table, what records are returned from these queries?
+1. Given this `cats` table, what records are returned from these queries?
     * `SELECT name, adoption_date FROM cats;`
 
         | name     | adoption_date            |
@@ -81,9 +81,9 @@ Answer the following questions and submit the responses.
         | Victoire | 7   |
         | Nala     | 1   |
 
-3. From the `cats` table, write queries to select the following pieces of data.
-    
-	* Display all the information about all of the available cats.
+1. From the `cats` table, write queries to select the following pieces of data.
+
+    * Display all the information about all of the available cats.
 
         `SELECT * FROM cats;`
 
@@ -105,7 +105,7 @@ Answer the following questions and submit the responses.
         | Victoire | M      |
 
     * Find all of the names of the cats, so you don't choose duplicate names for new cats.
-       
+
         `SELECT name FROM cats;`
 
         | name     |
@@ -116,14 +116,16 @@ Answer the following questions and submit the responses.
         | Victoire |
         | Nala     |
 
-4. List each comparison operator and explain when you would use it. Include a real world example for each.
-    * less than (<)
-    * greater than (>)
-    * less than or equal to (<=)
-    * greater than or equal to (>=)
-    * not equal to (!=,<>)
-    * equal to (=)
-5. From the `cats` table, what data is returned from these queries?
+1. List each comparison operator and explain when you would use it. Include a real world example for each.
+    * less than (<) --
+    * greater than (>) --
+    * less than or equal to (<=) --
+    * greater than or equal to (>=) --
+    * not equal to (!=,<>) -- test for inequality in query
+      * ex: Search car expenses for transactions where category != 'Gas'
+    * equal to (=) -- test for equality in a query
+      * ex: Search contacts for entries where first_name = 'Sarah'
+1. From the `cats` table, what data is returned from these queries?
     * `SELECT name FROM cats WHERE gender = 'F';`
         | name     |
         | -------- |
