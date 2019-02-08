@@ -40,7 +40,7 @@ Use the commands above to complete the following tasks, and submit the SQL state
       * First and last name. - ***TEXT***
       * Whether they sent in their RSVP. - ***BOOLEAN***
       * Number of guests. - ***INTEGER***
-      * Number of meals. - ***INTEGER***
+      * Number of meals. - ***DECIMAL***
     * Write a command that creates the table to track the wedding dinner.
       ``` sql
         CREATE TABLE wedding_guests (
