@@ -117,15 +117,19 @@ Answer the following questions and submit the responses.
         | Nala     |
 
 1. List each comparison operator and explain when you would use it. Include a real world example for each.
-    * less than (<) --
-    * greater than (>) --
-    * less than or equal to (<=) --
-    * greater than or equal to (>=) --
-    * not equal to (!=,<>) -- test for inequality in query
-      * ex: Search car expenses for transactions where category != 'Gas'
-    * equal to (=) -- test for equality in a query
-      * ex: Search contacts for entries where first_name = 'Sarah'
-1. From the `cats` table, what data is returned from these queries?
+    1. less than (<) -- comparing two values where first value is less than second
+        * ex: secret santa! gifts must cost less than $20.
+    2. greater than (>) -- comparing two values where first value is greater than second
+         * ex: find all job applicants with greater than 5 years of experience.    
+    3. less than or equal to (<=) -- comparing two values where first value is less than or equal to the second
+         * ex: find all library books with 2 or fewer available copies
+    4. greater than or equal to (>=) -- comparing two values where first value is greater than or equal to the second
+         * ex: list all conference chairs who have served for at least 3 years.
+    5. not equal to (!=,<>) -- compares two values, first value is not equal to second
+         * ex: Search car expenses for transactions where category != 'Gas'
+    6. equal to (=) -- compares two values, first value is equal to second
+         * ex: Search contacts for entries where first_name = 'Sarah'
+2. From the `cats` table, what data is returned from these queries?
     * `SELECT name FROM cats WHERE gender = 'F';`
         | name     |
         | -------- |
