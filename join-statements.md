@@ -1,7 +1,7 @@
 # JOIN Statements
 
 1. How do you find related data held in two separate data tables?
-2. Explain in your own words, the difference between an `INNER JOIN`, `LEFT OUTER JOIN`, and `RIGHT OUTER JOIN`. Give a real-world example for each.
+1. Explain in your own words, the difference between an `INNER JOIN`, `LEFT OUTER JOIN`, and `RIGHT OUTER JOIN`. Give a real-world example for each.
 1. Define primary key and foreign key. Give a real-world example for each.
 1. Define aliasing.
 1. Change this query so that you are using aliasing:
@@ -29,9 +29,48 @@
     ```
 
 1. Why would you use a `NATURAL JOIN`? Give a real-world example.
-1. Using the Employee schema and data, write queries to find the following information: **FIXME**
+1. Using the Employee schema and data, write queries to find the following information:
    * List all employees and all shifts
-     * https://www.db-fiddle.com/f/omfx8AfCTGAp4jH3QE9xUB/2 
+
+    ``` sql
+    -- https://www.db-fiddle.com/f/omfx8AfCTGAp4jH3QE9xUB/4
+
+    SELECT sh.date, sh.start_time, sh.end_time, e.name
+    FROM shifts as sh 
+    NATURAL FULL JOIN employees as e
+
+    ORDER BY 1,2;
+
+    | date       | start_time | end_time | name               |
+    | ---------- | ---------- | -------- | ------------------ |
+    | 1998-03-09 | 08:00:00   | 12:00:00 | Hermione Granger   |
+    | 1998-03-09 | 08:00:00   | 16:00:00 | Ronald Weasley     |
+    | 1998-03-09 | 12:00:00   | 16:00:00 | Luna Lovegood      |
+    | 1998-03-09 | 12:00:00   | 20:00:00 | Draco Malfoy       |
+    | 1998-03-09 | 16:00:00   | 20:00:00 | Padma Patil        |
+    | 1998-03-10 | 08:00:00   | 12:00:00 | Neville Longbottom |
+    | 1998-03-10 | 08:00:00   | 16:00:00 | Cedric Diggory     |
+    | 1998-03-10 | 12:00:00   | 16:00:00 | Cho Chang          |
+    | 1998-03-10 | 12:00:00   | 20:00:00 | Dean Thomas        |
+    | 1998-03-10 | 16:00:00   | 20:00:00 |                    |
+    | 1998-03-11 | 08:00:00   | 16:00:00 |                    |
+    | 1998-03-11 | 08:00:00   | 12:00:00 |                    |
+    | 1998-03-11 | 12:00:00   | 20:00:00 |                    |
+    | 1998-03-11 | 12:00:00   | 16:00:00 |                    |
+    | 1998-03-11 | 16:00:00   | 20:00:00 |                    |
+    | 1998-03-12 | 08:00:00   | 12:00:00 |                    |
+    | 1998-03-12 | 08:00:00   | 16:00:00 |                    |
+    | 1998-03-12 | 12:00:00   | 20:00:00 |                    |
+    | 1998-03-12 | 12:00:00   | 16:00:00 |                    |
+    | 1998-03-12 | 16:00:00   | 20:00:00 |                    |
+    | 1998-03-13 | 08:00:00   | 12:00:00 |                    |
+    | 1998-03-13 | 08:00:00   | 16:00:00 |                    |
+    | 1998-03-13 | 12:00:00   | 16:00:00 |                    |
+    | 1998-03-13 | 12:00:00   | 20:00:00 |                    |
+    | 1998-03-13 | 16:00:00   | 20:00:00 |                    |
+
+    ```
+
 1. Using the Adoption schema and data, write queries to retriece the following information and include the results
     * Create a list of all volunteers. If the volunteer is fostering a dog, include each dog as well.
       
@@ -155,7 +194,7 @@
         | Argus      | Filch     | 2017-08-27    | $80.00       |
         ```
 
-2. Using the Library schema and data, write queries applying the following scenarios and include the results:
+1. Using the Library schema and data, write queries applying the following scenarios and include the results:
     * To determine if the library should buy more copies of a given book, please provide the names and position, in order, of all the patrons with a hold (request for a book with all copies checked out) on "Advanced Potion-Making".
 
         ``` sql
