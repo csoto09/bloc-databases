@@ -1,9 +1,13 @@
 # JOIN Statements
 
-1. How do you find related data held in two separate data tables?
+1. How do you find related data held in two separate data tables? **IN PROGRESS** 
 1. Explain in your own words, the difference between an `INNER JOIN`, `LEFT OUTER JOIN`, and `RIGHT OUTER JOIN`. Give a real-world example for each.
-1. Define primary key and foreign key. Give a real-world example for each.
+   * Inner Join: Match two tables to each other and return all entries that match the provided condition
+   * Left Outer Join: Assuming Table A = Left and Table B = Right, return all rows from Table A and rows from Table B that match the provided condition
+   * Right Outer Join: Assuming Table A = Left and Table B = Right, return all rows from Table B and rows from Table A that match the provided condition
+1. Define primary key and foreign key. Give a real-world example for each. **IN PROGRESS**
 1. Define aliasing.
+    * a user defined "nickname" that allows users to use the nickname to refer to the column or table instead of using the full name.
 1. Change this query so that you are using aliasing:
 
     ``` sql
@@ -28,7 +32,8 @@
     JOIN compensation as comp ON p.id = comp.professor_id
     ```
 
-1. Why would you use a `NATURAL JOIN`? Give a real-world example.
+1. Why would you use a `NATURAL JOIN`? Give a real-world example. **IN PROGRESS**
+
 1. Using the Employee schema and data, write queries to find the following information:
    * List all employees and all shifts
 
