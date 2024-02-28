@@ -1,0 +1,32 @@
+repo_name: csoto09/bloc-databases
+report_id: 921511b417049e719917d37d774e20ed
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-05T08:37:48+00:00'
+requested_by: csoto09
+provider: github
+branch: master
+detected_tools_count: 2
+tools:
+- name: SQL
+  description: It is a domain-specific language used in programming
+  website_url: https://en.wikipedia.org/wiki/SQL
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/csoto09/bloc-databases/blob/master/Untitled-4.sql
+  detection_source: Untitled-4.sql
+  last_updated_by: Carlos J. Soto
+  last_updated_on: 2019-02-13 20:37:09.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/csoto09/bloc-databases
+  detection_source: Repo Metadata
